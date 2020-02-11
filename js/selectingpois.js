@@ -3,7 +3,7 @@
     Places near given location.
  */
 var ServerInformation = {
-    POIDATA_SERVER: "https://example.wikitude.com/GetSamplePois/",
+    POIDATA_SERVER: "https://apakabahrul.github.io/wikitude/",
     POIDATA_SERVER_ARG_LAT: "lat",
     POIDATA_SERVER_ARG_LON: "lon",
     POIDATA_SERVER_ARG_NR_POIS: "nrPois"
