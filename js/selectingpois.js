@@ -1,4 +1,16 @@
+/*
+    Information about server communication. This sample webservice is provided by Wikitude and returns random dummy
+    Places near given location.
+ */
+var ServerInformation = {
+    POIDATA_SERVER: "https://example.wikitude.com/GetSamplePois/",
+    POIDATA_SERVER_ARG_LAT: "lat",
+    POIDATA_SERVER_ARG_LON: "lon",
+    POIDATA_SERVER_ARG_NR_POIS: "nrPois"
+};
+
 /* Implementation of AR-Experience (aka "World"). */
+
 var World = {
     /* You may request new data from server periodically, however: in this sample data is only requested once. */
     isRequestingData: false,
@@ -11,7 +23,6 @@ var World = {
     markerDrawableSelected: null,
     markerDrawableDirectionIndicator: null,
 
-
     /* List of AR.GeoObjects that are currently shown in the scene / World. */
     markerList: [],
 
@@ -20,6 +31,7 @@ var World = {
 
     /* Called to inject new POI data. */
     loadPoisFromJsonData: function loadPoisFromJsonDataFn(poiData) {
+
         /* Empty list of visible markers. */
         World.markerList = [];
 
@@ -34,7 +46,6 @@ var World = {
             onError: World.onError
         });
 
-
         /* Loop through POI-information and create an AR.GeoObject (=Marker) per POI. */
         for (var currentPlaceNr = 0; currentPlaceNr < poiData.length; currentPlaceNr++) {
             var singlePoi = {
@@ -46,10 +57,6 @@ var World = {
                 "description": poiData[currentPlaceNr].description
             };
 
-            /*
-                To be able to deselect a marker while the user taps on the empty screen, the World object holds an
-                 array that contains each marker.
-            */
             World.markerList.push(new Marker(singlePoi));
         }
 
@@ -69,21 +76,16 @@ var World = {
         });
     },
 
-    /* Location updates, fired every time you call architectView.setLocation() in native environment. */
+    /*
+        Location updates, fired every time you call architectView.setLocation() in native environment
+        Note: You may set 'AR.context.onLocationChanged = null' to no longer receive location updates in
+        World.locationChanged.
+     */
     locationChanged: function locationChangedFn(lat, lon, alt, acc) {
 
-        /*
-            The custom function World.onLocationChanged checks with the flag World.initiallyLoadedData if the
-            function was already called. With the first call of World.onLocationChanged an object that contains geo
-            information will be created which will be later used to create a marker using the
-            World.loadPoisFromJsonData function.
-        */
+        /* Request data if not already present. */
         if (!World.initiallyLoadedData) {
-            /*
-                requestDataFromLocal with the geo information as parameters (latitude, longitude) creates different
-                poi data to a random location in the user's vicinity.
-            */
-            World.requestDataFromLocal(lat, lon);
+            World.requestDataFromServer(lat, lon);
             World.initiallyLoadedData = true;
         }
     },
@@ -109,56 +111,45 @@ var World = {
         if (World.currentMarker) {
             World.currentMarker.setDeselected(World.currentMarker);
         }
+        World.currentMarker = null;
     },
 
+    /*
+        JQuery provides a number of tools to load data from a remote origin.
+        It is highly recommended to use the JSON format for POI information. Requesting and parsing is done in a
+        few lines of code.
+        Use e.g. 'AR.context.onLocationChanged = World.locationChanged;' to define the method invoked on location
+        updates.
+        In this sample POI information is requested after the very first location update.
+
+        This sample uses a test-service of Wikitude which randomly delivers geo-location data around the passed
+        latitude/longitude user location.
+        You have to update 'ServerInformation' data to use your own own server. Also ensure the JSON format is same
+        as in previous sample's 'myJsonData.js'-file.
+    */
     /* Request POI data. */
-    requestDataFromLocal: function requestDataFromLocalFn(centerPointLatitude, centerPointLongitude) {
-        //var poisToCreate = 20;
-        var poiData = [];
+    requestDataFromServer: function requestDataFromServerFn(lat, lon) {
 
-        /*for (var i = 0; i < poisToCreate; i++) {
-            poiData.push({
-                "id": (i + 1),
-                "longitude": (centerPointLongitude + (Math.random() / 5 - 0.1)),
-                "latitude": (centerPointLatitude + (Math.random() / 5 - 0.1)),
-                "description": ("This is the description of POI#" + (i + 1)),
-                *//* Use this value to ignore altitude information in general - marker will always be on user-level. *//*
-                "altitude": AR.CONST.UNKNOWN_ALTITUDE,
-                "name": ("POI#" + (i + 1))
+        /* Set helper var to avoid requesting places while loading. */
+        World.isRequestingData = true;
+        World.updateStatusMessage('Requesting places from web-service');
+
+        /* Server-url to JSON content provider. */
+        var serverUrl = ServerInformation.POIDATA_SERVER + "?" +
+            ServerInformation.POIDATA_SERVER_ARG_LAT + "=" +
+            lat + "&" + ServerInformation.POIDATA_SERVER_ARG_LON + "=" +
+            lon + "&" + ServerInformation.POIDATA_SERVER_ARG_NR_POIS + "=20";
+
+        var jqxhr = $.getJSON(serverUrl, function(data) {
+                World.loadPoisFromJsonData(data);
+            })
+            .error(function(err) {
+                World.updateStatusMessage("Invalid web-service response.", true);
+                World.isRequestingData = false;
+            })
+            .complete(function() {
+                World.isRequestingData = false;
             });
-        }*/
-
-        poiData.push({
-            "id": (1),
-            "longitude": (105.314407),
-            "latitude": (-5.357907),
-            "description": ("Deskripsi Gedung A"),
-            /* Use this value to ignore altitude information in general - marker will always be on user-level. */
-            "altitude": AR.CONST.UNKNOWN_ALTITUDE,
-            "name": ("Gedung A")
-            });
-
-        poiData.push({
-            "id": (2),
-            "longitude": (105.315307),
-            "latitude": (-5.357895),
-            "description": ("Deskripsi Gedung B"),
-            /* Use this value to ignore altitude information in general - marker will always be on user-level. */
-            "altitude": AR.CONST.UNKNOWN_ALTITUDE,
-            "name": ("Gedung B")
-            });
-
-        poiData.push({
-            "id": (3),
-            "longitude": (105.313709),
-            "latitude": (-5.358398),
-            "description": ("Deskripsi Gedung C"),
-            /* Use this value to ignore altitude information in general - marker will always be on user-level. */
-            "altitude": AR.CONST.UNKNOWN_ALTITUDE,
-            "name": ("Gedung C")
-            });
-
-        World.loadPoisFromJsonData(poiData);
     },
 
     onError: function onErrorFn(error) {
@@ -166,15 +157,8 @@ var World = {
     }
 };
 
-/*
-    Set a custom function where location changes are forwarded to. There is also a possibility to set
-    AR.context.onLocationChanged to null. In this case the function will not be called anymore and no further
-    location updates will be received.
-*/
+/* Forward locationChanges to custom function. */
 AR.context.onLocationChanged = World.locationChanged;
 
-/*
-    To detect clicks where no drawable was hit set a custom function on AR.context.onScreenClick where the
-    currently selected marker is deselected.
-*/
+/* Forward clicks in empty area to World. */
 AR.context.onScreenClick = World.onScreenClick;
