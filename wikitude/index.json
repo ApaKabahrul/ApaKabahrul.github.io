@@ -1,4 +1,4 @@
-{"id":"1","longitude":"0.055","latitude":"-0.011","description":"This is the description of POI#1","name":"POI#1"},
+[{"id":"1","longitude":"0.055","latitude":"-0.011","description":"This is the description of POI#1","name":"POI#1"},
 {"id":"2","longitude":"0.094","latitude":"0.031","description":"This is the description of POI#2","name":"POI#2"},
 {"id":"3","longitude":"-0.09","latitude":"-0.049","description":"This is the description of POI#3","name":"POI#3"},
 {"id":"4","longitude":"-0.017","latitude":"0.097","description":"This is the description of POI#4","name":"POI#4"},
@@ -28,3 +28,4 @@
 {"id":"28","longitude":"0.093","latitude":"0.011","description":"This is the description of POI#28","name":"POI#28"},
 {"id":"29","longitude":"0.02","latitude":"0.007","description":"This is the description of POI#29","name":"POI#29"},
 {"id":"30","longitude":"0.085","latitude":"0.076","description":"This is the description of POI#30","name":"POI#30"}
+]
