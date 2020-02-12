@@ -157,6 +157,16 @@ var World = {
             "altitude": AR.CONST.UNKNOWN_ALTITUDE,
             "name": ("Gedung C")
             });
+        
+        poiData.push({
+            "id": (4),
+            "longitude": (105.309089),
+            "latitude": (-5.360323),
+            "description": ("Deskripsi LABTEK 3"),
+            /* Use this value to ignore altitude information in general - marker will always be on user-level. */
+            "altitude": AR.CONST.UNKNOWN_ALTITUDE,
+            "name": ("LABTEK 3")
+            });
 
         World.loadPoisFromJsonData(poiData);
     },
