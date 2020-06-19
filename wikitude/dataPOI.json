@@ -1,13 +1,79 @@
 [
-{"id":"1","longitude":"105.314407","latitude":"-5.357907","description":"This is the description of POI#1","name":"A"},
-{"id":"2","longitude":"105.315307","latitude":"-5.357895","description":"This is the description of POI#3","name":"B"},
-{"id":"3","longitude":"105.313709","latitude":"-5.358398","description":"This is the description of POI#2","name":"C"},
-{"id":"4","longitude":"105.313479","latitude":"-5.358793","description":"This is the description of POI#1","name":"D"},
-{"id":"5","longitude":"105.315470","latitude":"-5.360053","description":"This is the description of POI#1","name":"E"},
-{"id":"6","longitude":"105.313669","latitude":"-5.361376","description":"This is the description of POI#1","name":"F"},
-{"id":"7","longitude":"105.310406","latitude":"-5.360929","description":"This is the description of POI#1","name":"GKU 1"},
-{"id":"8","longitude":"105.310168","latitude":"-5.360329","description":"This is the description of POI#1","name":"LABTEK 1"},
-{"id":"9","longitude":"105.310379","latitude":"-5.361514","description":"This is the description of POI#1","name":"LABTEK 2"},
-{"id":"10","longitude":"105.309089","latitude":"-5.360323","description":"This is the description of POI#1","name":"LABTEK 3"},
-{"id":"11","longitude":"106.870342","latitude":"-6.376848","description":"Testing WFH","name":"WFH"}
+  {
+    "id": "1",
+    "longitude": "105.314407",
+    "latitude": "-5.357907",
+    "description": "This is the description of POI#1",
+    "name": "A"
+  },
+  {
+    "id": "2",
+    "longitude": "105.315307",
+    "latitude": "-5.357895",
+    "description": "This is the description of POI#3",
+    "name": "B"
+  },
+  {
+    "id": "3",
+    "longitude": "105.313709",
+    "latitude": "-5.358398",
+    "description": "This is the description of POI#2",
+    "name": "C"
+  },
+  {
+    "id": "4",
+    "longitude": "105.313479",
+    "latitude": "-5.358793",
+    "description": "This is the description of POI#1",
+    "name": "D"
+  },
+  {
+    "id": "5",
+    "longitude": "105.315470",
+    "latitude": "-5.360053",
+    "description": "This is the description of POI#1",
+    "name": "E"
+  },
+  {
+    "id": "6",
+    "longitude": "105.313669",
+    "latitude": "-5.361376",
+    "description": "This is the description of POI#1",
+    "name": "F"
+  },
+  {
+    "id": "7",
+    "longitude": "105.310406",
+    "latitude": "-5.360929",
+    "description": "This is the description of POI#1",
+    "name": "GKU 1"
+  },
+  {
+    "id": "8",
+    "longitude": "105.310168",
+    "latitude": "-5.360329",
+    "description": "This is the description of POI#1",
+    "name": "LABTEK 1"
+  },
+  {
+    "id": "9",
+    "longitude": "105.310379",
+    "latitude": "-5.361514",
+    "description": "This is the description of POI#1",
+    "name": "LABTEK 2"
+  },
+  {
+    "id": "10",
+    "longitude": "105.309089",
+    "latitude": "-5.360323",
+    "description": "This is the description of POI#1",
+    "name": "LABTEK 3"
+  },
+  {
+    "id": "11",
+    "longitude": "106.870342",
+    "latitude": "-6.376848",
+    "description": "Testing WFH",
+    "name": "WFH"
+  }
 ]
