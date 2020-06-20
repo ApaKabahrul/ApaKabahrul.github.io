@@ -18,7 +18,7 @@
     "longitude": "105.313709",
     "latitude": "-5.358398",
     "description": "This is the description of POI#2",
-	"daftar ruangan": [
+	"daftar ruangan": [{
 	 "C101 Administrasi LPPM / LP3 (Lembaga Penelitian dan Pengabdian kepada Masyarakat)",
      "C102 Dosen Akreditasi",
 	  "C103 Dosen Akreditasi",
@@ -38,7 +38,7 @@
 	  "C207 UPT (Unit Pelaksana Teknis) Asrama dan Wisma",
 	  "C208 UPT (Unit Pelaksana Teknis) Asrama dan Wisma",
 	  "C209 UPT (Unit Pelaksana Teknis) OAIL BMKG",
-	  "C210 Dosen Teknik Geofisika"
+	  "C210 Dosen Teknik Geofisika"}
     ],
     "name": "C"
   },
@@ -48,8 +48,9 @@
     "latitude": "-5.358793",
     "description": "This is the description of POI#1",
 	"daftar ruangan": [
-     "D101 LPPM Rapat",
-     "D102 SPM",
+	{
+      "D101 LPPM Rapat",
+      "D102 SPM",
 	  "D103 Jurusan JTPI",
 	  "D104 KKN (Kuliah Kerja Nyata)",
 	  "D105 Dosen Akreditasi",
@@ -72,7 +73,8 @@
 	  "D212 Dosen Teknik Mesin"
 	  "D213 Dosen Teknik Fisika",
 	  "D214 Dosen Teknik Informatika",
-	  "D215 Dosen Teknik Informatika"	  
+	  "D215 Dosen Teknik Informatika"
+	  }  
     ],
     "name": "D"
   },
