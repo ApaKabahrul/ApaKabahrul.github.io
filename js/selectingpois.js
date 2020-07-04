@@ -20,7 +20,7 @@ var ArTa = {
 
         ArTa.markerList = [];
 
-        ArTa.markerDrawableIdle = new AR.ImageResource("assets/marker_idle.png", {
+        ArTa.markerDrawableIdle = new AR.ImageResource("assets/marker_idle_costum.png", {
             onError: ArTa.onError
         });
         ArTa.markerDrawableSelected = new AR.ImageResource("assets/marker_selected.png", {
