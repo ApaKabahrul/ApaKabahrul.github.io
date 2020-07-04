@@ -141,8 +141,8 @@ var World = {
             lon + "&" + ServerInformation.POIDATA_SERVER_ARG_NR_POIS + "=20";
 
         var jqxhr = $.getJSON(serverUrl, function(data) {
-                World.loadPoisFromJsonData(data);
-            })
+            World.loadPoisFromJsonData(data);
+        })
             .error(function(err) {
                 World.updateStatusMessage("Invalid web-service response.", true);
                 World.isRequestingData = false;
