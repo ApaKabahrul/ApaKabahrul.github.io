@@ -137,10 +137,70 @@
     "id":"10",
     "longitude":"105.309089",
     "latitude":"-5.360323",
-    "description":"GKU",
+    "description":"L3",
     "daftar ruangan":[
       "Labtek 3"
     ],
     "name":"Labtek 3 (Laboratorium Teknik 3)"
+  },
+  {
+    "id":"11",
+    "longitude":"105.312579",
+    "latitude":"-5.359463",
+    "description":"RK",
+    "daftar ruangan":[
+      "Tenant 1"
+    ],
+    "name":"Kantin Rumah Kayu"
+  },
+  {
+    "id":"12",
+    "longitude":"105.316469",
+    "latitude":"-5.357636",
+    "description":"GKU",
+    "daftar ruangan":[
+      "Tenant 1"
+    ],
+    "name":"Kantin BKL"
+  },
+  {
+    "id":"13",
+    "longitude":"105.315537",
+    "latitude":"-5.357935",
+    "description":"Galeri",
+    "daftar ruangan":[
+      "-"
+    ],
+    "name":"Galeri ITERA"
+  },
+  {
+    "id":"14",
+    "longitude":"105.312604",
+    "latitude":"-5.359121",
+    "description":"Baim",
+    "daftar ruangan":[
+      "-"
+    ],
+    "name":"Masjid Baitul Ilmi"
+  },
+  {
+    "id":"15",
+    "longitude":"105.318779",
+    "latitude":"-5.356793",
+    "description":"ATT",
+    "daftar ruangan":[
+      "-"
+    ],
+    "name":"Masjid At-Tanwir"
+  },
+  {
+    "id":"7",
+    "longitude":"105.315926",
+    "latitude":"-5.357810",
+    "description":"PK",
+    "daftar ruangan":[
+      "-"
+    ],
+    "name":"Poliklinik"
   }
 ]
