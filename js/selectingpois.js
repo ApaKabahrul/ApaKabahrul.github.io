@@ -139,6 +139,17 @@ var World = {
             ServerInformation.POIDATA_SERVER_ARG_LAT + "=" +
             lat + "&" + ServerInformation.POIDATA_SERVER_ARG_LON + "=" +
             lon + "&" + ServerInformation.POIDATA_SERVER_ARG_NR_POIS + "=20";
+
+        var jqxhr = $.getJSON(serverUrl, function(data) {
+                World.loadPoisFromJsonData(data);
+            })
+            .error(function(err) {
+                World.updateStatusMessage("Invalid web-service response.", true);
+                World.isRequestingData = false;
+            })
+            .complete(function() {
+                World.isRequestingData = false;
+            });
     },
 
     onError: function onErrorFn(error) {
