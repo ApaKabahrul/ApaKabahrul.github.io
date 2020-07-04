@@ -35,8 +35,8 @@ var ArTa = {
                 "id": dataPOI[currentPlaceNr].id,
                 "latitude": parseFloat(dataPOI[currentPlaceNr].latitude),
                 "longitude": parseFloat(dataPOI[currentPlaceNr].longitude),
-                "nama": dataPOI[currentPlaceNr].name,
-                "deskripsi": dataPOI[currentPlaceNr].description
+                "title": dataPOI[currentPlaceNr].name,
+                "description": dataPOI[currentPlaceNr].description
             };
 
             ArTa.markerList.push(new Marker(singlePoi));
@@ -87,7 +87,7 @@ var ArTa = {
 
     requestDataFromServer: function requestDataFromServerFn(lat, lon) {
         ArTa.isRequestingData = true;
-        ArTa.updateStatusMessage('Requesting places from web-service');
+        ArTa.updateStatusMessage('Requesting tempat');
 
         var serverUrl = ServerInformation.POIDATA_SERVER + "?" +
             ServerInformation.POIDATA_SERVER_ARG_LAT + "=" +
@@ -97,7 +97,7 @@ var ArTa = {
         var jqxhr = $.getJSON(serverUrl, function(data) {
             ArTa.loadPoisFromJsonData(data);
         })
-            .error(function() {
+            .error(function(err) {
                 ArTa.updateStatusMessage("Invalid web-service response.", true);
                 ArTa.isRequestingData = false;
             })
