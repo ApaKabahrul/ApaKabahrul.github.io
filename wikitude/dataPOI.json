@@ -91,5 +91,56 @@
       "E101 E"
     ],
     "name":"E"
+  },
+  {
+    "id":"6",
+    "longitude":"105.313669",
+    "latitude":"-5.361376",
+    "description":"Ged F",
+    "daftar ruangan":[
+      "F101 F"
+    ],
+    "name":"F"
+  },
+  {
+    "id":"7",
+    "longitude":"105.310406",
+    "latitude":"-5.360929",
+    "description":"GKU",
+    "daftar ruangan":[
+      "GK101 GKU"
+    ],
+    "name":"GKU1 (Gedung Kuliah Umum 1)"
+  }
+,
+  {
+    "id":"8",
+    "longitude":"105.310168",
+    "latitude":"-5.360329",
+    "description":"L1",
+    "daftar ruangan":[
+      "Labtek 1"
+    ],
+    "name":"Labtek1 (Laboratorium Teknik 1)"
+  },
+  {
+    "id":"9",
+    "longitude":"105.310379",
+    "latitude":"-5.361514",
+    "description":"L2",
+    "daftar ruangan":[
+      "Labtek 2"
+    ],
+    "name":"Labtek 2 (Laboratorium Teknik 2)"
+  },
+  {
+    "id":"10",
+    "longitude":"105.309089",
+    "latitude":"-5.360323",
+    "description":"GKU",
+    "daftar ruangan":[
+      "Labtek 3"
+    ],
+    "name":"Labtek 3 (Laboratorium Teknik 3)"
   }
 ]
