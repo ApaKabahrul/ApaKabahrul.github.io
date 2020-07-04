@@ -1,16 +1,9 @@
-/*
-    Information about server communication. This sample webservice is provided by Wikitude and returns random dummy
-    Places near given location.
- */
 var ServerInformation = {
     POIDATA_SERVER: "https://apakabahrul.github.io/wikitude/dataPOI.json",
     POIDATA_SERVER_ARG_LAT: "lat",
     POIDATA_SERVER_ARG_LON: "lon",
     POIDATA_SERVER_ARG_NR_POIS: "nrPois"
 };
-
-/* Implementation of AR-Experience (aka "ArTa"). */
-
 var ArTa = {
     /* You may request new data from server periodically, however: in this sample data is only requested once. */
     isRequestingData: false,
@@ -52,7 +45,6 @@ var ArTa = {
                 "id": poiData[currentPlaceNr].id,
                 "latitude": parseFloat(poiData[currentPlaceNr].latitude),
                 "longitude": parseFloat(poiData[currentPlaceNr].longitude),
-                "altitude": parseFloat(poiData[currentPlaceNr].altitude),
                 "title": poiData[currentPlaceNr].name,
                 "description": poiData[currentPlaceNr].description
             };
@@ -81,7 +73,7 @@ var ArTa = {
         Note: You may set 'AR.context.onLocationChanged = null' to no longer receive location updates in
         ArTa.locationChanged.
      */
-    locationChanged: function locationChangedFn(lat, lon, alt, acc) {
+    locationChanged: function locationChangedFn(lat, lon) {
 
         /* Request data if not already present. */
         if (!ArTa.initiallyLoadedData) {
