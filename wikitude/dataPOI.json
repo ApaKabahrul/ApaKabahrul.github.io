@@ -4,7 +4,7 @@
     "longitude":"105.314407",
     "latitude":"-5.357907",
     "description":"This is the description of POI#1",
-	"daftar ruangan":[
+    "daftar ruangan":[
       "A101 A"
     ],
     "name":"A"
@@ -14,7 +14,7 @@
     "longitude":"105.315307",
     "latitude":"-5.357895",
     "description":"This is the description of POI#3",
-	"daftar ruangan":[
+    "daftar ruangan":[
       "B101 B"
     ],
     "name":"B"
@@ -29,7 +29,7 @@
       "C102 Dosen Akreditasi",
       "C103 Dosen Akreditasi",
       "C104 Dosen Teknik Industri",
-      "C105 Pelayanan Akadamik Pusat",
+      "C105 Pelayanan Akademik Pusat",
       "C106 Kesehatan",
       "C107 Transit",
       "C108 Transit Akad",

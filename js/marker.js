@@ -20,7 +20,7 @@ function Marker(poiData) {
     var markerLocation = new AR.GeoLocation(poiData.latitude, poiData.longitude, poiData.altitude);
 
     /* Create an AR.ImageDrawable for the marker in idle state. */
-    this.markerDrawableIdle = new AR.ImageDrawable(World.markerDrawableIdle, 2.5, {
+    this.markerDrawableIdle = new AR.ImageDrawable(ArTa.markerDrawableIdle, 2.5, {
         zOrder: 0,
         opacity: 1.0,
         /*
@@ -34,7 +34,7 @@ function Marker(poiData) {
     });
 
     /* Create an AR.ImageDrawable for the marker in selected state. */
-    this.markerDrawableSelected = new AR.ImageDrawable(World.markerDrawableSelected, 2.5, {
+    this.markerDrawableSelected = new AR.ImageDrawable(ArTa.markerDrawableSelected, 2.5, {
         zOrder: 0,
         opacity: 0.0,
         onClick: null
@@ -64,10 +64,10 @@ function Marker(poiData) {
 
     /*
         Create an AR.ImageDrawable using the AR.ImageResource for the direction indicator which was created in the
-        World. Set options regarding the offset and anchor of the image so that it will be displayed correctly on
+        ArTa. Set options regarding the offset and anchor of the image so that it will be displayed correctly on
         the edge of the screen.
     */
-    this.directionIndicatorDrawable = new AR.ImageDrawable(World.markerDrawableDirectionIndicator, 0.1, {
+    this.directionIndicatorDrawable = new AR.ImageDrawable(ArTa.markerDrawableDirectionIndicator, 0.1, {
         enabled: false,
         verticalAnchor: AR.CONST.VERTICAL_ANCHOR.TOP
     });
@@ -109,7 +109,7 @@ Marker.prototype.getOnClickTrigger = function(marker) {
             } else {
                 Marker.prototype.setSelected(marker);
                 try {
-                    World.onMarkerSelected(marker);
+                    ArTa.onMarkerSelected(marker);
                 } catch (err) {
                     alert(err);
                 }
