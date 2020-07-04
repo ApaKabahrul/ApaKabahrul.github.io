@@ -35,14 +35,14 @@ var ArTa = {
                 "id": dataPOI[currentPlaceNr].id,
                 "latitude": parseFloat(dataPOI[currentPlaceNr].latitude),
                 "longitude": parseFloat(dataPOI[currentPlaceNr].longitude),
-                "title": dataPOI[currentPlaceNr].name,
-                "description": dataPOI[currentPlaceNr].description
+                "nama": dataPOI[currentPlaceNr].name,
+                "deskripsi": dataPOI[currentPlaceNr].description
             };
 
             ArTa.markerList.push(new Marker(singlePoi));
         }
 
-        ArTa.updateStatusMessage(currentPlaceNr + ' places loaded');
+        ArTa.updateStatusMessage(currentPlaceNr + ' objek ditambahkan');
     },
 
     updateStatusMessage: function updateStatusMessageFn(message, isWarning) {
@@ -97,7 +97,7 @@ var ArTa = {
         var jqxhr = $.getJSON(serverUrl, function(data) {
             ArTa.loadPoisFromJsonData(data);
         })
-            .error(function(err) {
+            .error(function() {
                 ArTa.updateStatusMessage("Invalid web-service response.", true);
                 ArTa.isRequestingData = false;
             })
