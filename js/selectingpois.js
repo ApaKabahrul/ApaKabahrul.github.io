@@ -5,30 +5,21 @@ var ServerInformation = {
     POIDATA_SERVER_ARG_NR_POIS: "nrPois"
 };
 var ArTa = {
-    /* You may request new data from server periodically, however: in this sample data is only requested once. */
     isRequestingData: false,
-
-    /* True once data was fetched. */
     initiallyLoadedData: false,
 
-    /* Different POI-Marker assets. */
     markerDrawableIdle: null,
     markerDrawableSelected: null,
     markerDrawableDirectionIndicator: null,
 
-    /* List of AR.GeoObjects that are currently shown in the scene / ArTa. */
     markerList: [],
 
-    /* the last selected marker. */
     currentMarker: null,
 
-    /* Called to inject new POI data. */
-    loadPoisFromJsonData: function loadPoisFromJsonDataFn(poiData) {
+    loadPoisFromJsonData: function loadPoisFromJsonDataFn(dataPOI) {
 
-        /* Empty list of visible markers. */
         ArTa.markerList = [];
 
-        /* Start loading marker assets. */
         ArTa.markerDrawableIdle = new AR.ImageResource("assets/marker_idle.png", {
             onError: ArTa.onError
         });
@@ -39,14 +30,13 @@ var ArTa = {
             onError: ArTa.onError
         });
 
-        /* Loop through POI-information and create an AR.GeoObject (=Marker) per POI. */
-        for (var currentPlaceNr = 0; currentPlaceNr < poiData.length; currentPlaceNr++) {
+        for (var currentPlaceNr = 0; currentPlaceNr < dataPOI.length; currentPlaceNr++) {
             var singlePoi = {
-                "id": poiData[currentPlaceNr].id,
-                "latitude": parseFloat(poiData[currentPlaceNr].latitude),
-                "longitude": parseFloat(poiData[currentPlaceNr].longitude),
-                "title": poiData[currentPlaceNr].name,
-                "description": poiData[currentPlaceNr].description
+                "id": dataPOI[currentPlaceNr].id,
+                "latitude": parseFloat(dataPOI[currentPlaceNr].latitude),
+                "longitude": parseFloat(dataPOI[currentPlaceNr].longitude),
+                "title": dataPOI[currentPlaceNr].name,
+                "description": dataPOI[currentPlaceNr].description
             };
 
             ArTa.markerList.push(new Marker(singlePoi));
@@ -55,7 +45,6 @@ var ArTa = {
         ArTa.updateStatusMessage(currentPlaceNr + ' places loaded');
     },
 
-    /* Updates status message shown in small "i"-button aligned bottom center. */
     updateStatusMessage: function updateStatusMessageFn(message, isWarning) {
 
         var themeToUse = isWarning ? "e" : "c";
@@ -68,37 +57,27 @@ var ArTa = {
         });
     },
 
-    /*
-        Location updates, fired every time you call architectView.setLocation() in native environment
-        Note: You may set 'AR.context.onLocationChanged = null' to no longer receive location updates in
-        ArTa.locationChanged.
-     */
     locationChanged: function locationChangedFn(lat, lon) {
 
-        /* Request data if not already present. */
         if (!ArTa.initiallyLoadedData) {
             ArTa.requestDataFromServer(lat, lon);
             ArTa.initiallyLoadedData = true;
         }
     },
 
-    /* Fired when user pressed maker in cam. */
     onMarkerSelected: function onMarkerSelectedFn(marker) {
 
-        /* Deselect previous marker. */
         if (ArTa.currentMarker) {
-            if (ArTa.currentMarker.poiData.id === marker.poiData.id) {
+            if (ArTa.currentMarker.dataPOI.id === marker.dataPOI.id) {
                 return;
             }
             ArTa.currentMarker.setDeselected(ArTa.currentMarker);
         }
 
-        /* Highlight current one. */
         marker.setSelected(marker);
         ArTa.currentMarker = marker;
     },
 
-    /* Screen was clicked but no geo-object was hit. */
     onScreenClick: function onScreenClickFn() {
         if (ArTa.currentMarker) {
             ArTa.currentMarker.setDeselected(ArTa.currentMarker);
@@ -106,27 +85,10 @@ var ArTa = {
         ArTa.currentMarker = null;
     },
 
-    /*
-        JQuery provides a number of tools to load data from a remote origin.
-        It is highly recommended to use the JSON format for POI information. Requesting and parsing is done in a
-        few lines of code.
-        Use e.g. 'AR.context.onLocationChanged = ArTa.locationChanged;' to define the method invoked on location
-        updates.
-        In this sample POI information is requested after the very first location update.
-
-        This sample uses a test-service of Wikitude which randomly delivers geo-location data around the passed
-        latitude/longitude user location.
-        You have to update 'ServerInformation' data to use your own own server. Also ensure the JSON format is same
-        as in previous sample's 'myJsonData.js'-file.
-    */
-    /* Request POI data. */
     requestDataFromServer: function requestDataFromServerFn(lat, lon) {
-
-        /* Set helper var to avoid requesting places while loading. */
         ArTa.isRequestingData = true;
         ArTa.updateStatusMessage('Requesting places from web-service');
 
-        /* Server-url to JSON content provider. */
         var serverUrl = ServerInformation.POIDATA_SERVER + "?" +
             ServerInformation.POIDATA_SERVER_ARG_LAT + "=" +
             lat + "&" + ServerInformation.POIDATA_SERVER_ARG_LON + "=" +
@@ -149,8 +111,6 @@ var ArTa = {
     }
 };
 
-/* Forward locationChanges to custom function. */
 AR.context.onLocationChanged = ArTa.locationChanged;
 
-/* Forward clicks in empty area to ArTa. */
 AR.context.onScreenClick = ArTa.onScreenClick;

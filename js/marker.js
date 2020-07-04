@@ -1,9 +1,9 @@
 var changeAnimationDuration = 500;
 var resizeAnimationDuration = 1000;
 
-function Marker(poiData) {
+function Marker(dataPOI) {
 
-    this.poiData = poiData;
+    this.dataPOI = dataPOI;
     this.isSelected = false;
 
     /*
@@ -17,7 +17,7 @@ function Marker(poiData) {
     this.animationGroupSelected = null;
 
     /* Create the AR.GeoLocation from the poi data. */
-    var markerLocation = new AR.GeoLocation(poiData.latitude, poiData.longitude);
+    var markerLocation = new AR.GeoLocation(dataPOI.latitude, dataPOI.longitude);
 
     /* Create an AR.ImageDrawable for the marker in idle state. */
     this.markerDrawableIdle = new AR.ImageDrawable(ArTa.markerDrawableIdle, 2.5, {
@@ -41,7 +41,7 @@ function Marker(poiData) {
     });
 
     /* Create an AR.Label for the marker's title . */
-    this.titleLabel = new AR.Label(poiData.title.trunc(10), 1, {
+    this.titleLabel = new AR.Label(dataPOI.title.trunc(10), 1, {
         zOrder: 1,
         translate: {
             y: 0.55
@@ -52,7 +52,7 @@ function Marker(poiData) {
         }
     });
 
-    this.descriptionLabel = new AR.Label(poiData.description.trunc(15), 0.8, {
+    this.descriptionLabel = new AR.Label(dataPOI.description.trunc(15), 0.8, {
         zOrder: 1,
         translate: {
             y: -0.55
