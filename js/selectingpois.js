@@ -81,7 +81,7 @@ var World = {
         Note: You may set 'AR.context.onLocationChanged = null' to no longer receive location updates in
         World.locationChanged.
      */
-    locationChanged: function locationChangedFn(lat, lon, alt, acc) {
+    locationChanged: function locationChangedFn(lat, lon, alt) {
 
         /* Request data if not already present. */
         if (!World.initiallyLoadedData) {
@@ -133,25 +133,7 @@ var World = {
         /* Set helper var to avoid requesting places while loading. */
         World.isRequestingData = true;
         World.updateStatusMessage('Requesting places from web-service');
-
-        /* Server-url to JSON content provider. */
-        var serverUrl = ServerInformation.POIDATA_SERVER + "?" +
-            ServerInformation.POIDATA_SERVER_ARG_LAT + "=" +
-            lat + "&" + ServerInformation.POIDATA_SERVER_ARG_LON + "=" +
-            lon + "&" + ServerInformation.POIDATA_SERVER_ARG_NR_POIS + "=20";
-
-        var jqxhr = $.getJSON(serverUrl, function(data) {
-                World.loadPoisFromJsonData(data);
-            })
-            .error(function(err) {
-                World.updateStatusMessage("Invalid web-service response.", true);
-                World.isRequestingData = false;
-            })
-            .complete(function() {
-                World.isRequestingData = false;
-            });
     },
-
     onError: function onErrorFn(error) {
         alert(error);
     }
