@@ -20,9 +20,6 @@ var ArTa = {
     locationUpdaterMeter: 5,
 
     loadPoisFromJsonData: function loadPoisFromJsonDataFn(dataPOI) {
-        RadarPOI.show();
-        $('#radarContainer').unbind('click');
-        $("#radarContainer").click(RadarPOI.clickedRadar());
 
         ArTa.markerList = [];
 
@@ -97,13 +94,7 @@ var ArTa = {
 
         var distanceValue = (marker.distanceToUser > 999) ? ((marker.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(marker.distanceToUser) + " m");
 
-        $("#detail-jarak").html(distanceValue);
 
-        $("#panel-poidetail").panel("open",123);
-        $("#ui-panel-dismiss").unbind("mousedown");
-        $("#panel-poidetail").on("panelbeforeclose", function (event, ui){
-           ArTa.currentMarker.setDeselected(ArTa.currentMarker);
-        });
 
         /*if (ArTa.currentMarker) {
             if (ArTa.currentMarker.dataPOI.id === marker.dataPOI.id) {
@@ -112,16 +103,15 @@ var ArTa = {
             ArTa.currentMarker.setDeselected(ArTa.currentMarker);
         }*/
 
-        /*marker.setSelected(marker);
-        ArTa.currentMarker = marker;*/
+        marker.setSelected(marker);
+        ArTa.currentMarker = marker;
     },
 
     onScreenClick: function onScreenClickFn() {
-
-        /*if (ArTa.currentMarker) {
+        if (ArTa.currentMarker) {
             ArTa.currentMarker.setDeselected(ArTa.currentMarker);
         }
-        ArTa.currentMarker = null;*/
+        ArTa.currentMarker = null;
     },
 
     requestDataFromServer: function requestDataFromServerFn(lat, lon) {
