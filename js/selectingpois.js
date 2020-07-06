@@ -50,9 +50,9 @@ var ArTa = {
     },
 
     updateDistance: function updateDistanceToUserValuesFn(){
-      for (var i=0; i< ArTa.markerList.length; i++){
-          ArTa.markerList[i].distanceToUser = ArTa.markerList[i].markerObject.locations[0].distanceToUser();
-      }
+        for (var i=0; i< ArTa.markerList.length; i++){
+            ArTa.markerList[i].distanceToUser = ArTa.markerList[i].markerObject.locations[0].distanceToUser();
+        }
     },
 
     updateStatusMessage: function updateStatusMessageFn(message, isWarning) {
@@ -94,7 +94,13 @@ var ArTa = {
 
         var distanceValue = (marker.distanceToUser > 999) ? ((marker.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(marker.distanceToUser) + " m");
 
+        $("#detail-jarak").html(distanceValue);
 
+        $("#panel-poidetail").panel("open",123);
+        $("#ui-panel-dismiss").unbind("mousedown");
+        $("#panel-poidetail").on("panelbeforeclose", function (event, ui){
+            ArTa.currentMarker.setDeselected(ArTa.currentMarker);
+        });
 
         /*if (ArTa.currentMarker) {
             if (ArTa.currentMarker.dataPOI.id === marker.dataPOI.id) {
@@ -103,15 +109,16 @@ var ArTa = {
             ArTa.currentMarker.setDeselected(ArTa.currentMarker);
         }*/
 
-        marker.setSelected(marker);
-        ArTa.currentMarker = marker;
+        /*marker.setSelected(marker);
+        ArTa.currentMarker = marker;*/
     },
 
     onScreenClick: function onScreenClickFn() {
-        if (ArTa.currentMarker) {
+
+        /*if (ArTa.currentMarker) {
             ArTa.currentMarker.setDeselected(ArTa.currentMarker);
         }
-        ArTa.currentMarker = null;
+        ArTa.currentMarker = null;*/
     },
 
     requestDataFromServer: function requestDataFromServerFn(lat, lon) {
