@@ -77,33 +77,10 @@ function Marker(dataPOI) {
         the marker AR.GeoObject. The direction indicator is displayed automatically when necessary. AR.Drawable
         subclasses (e.g. AR.Circle) can be used as direction indicators.
     */
-    this.radarCircle = Ar.Circle(0.03,{
-        horizontalAnchor: AR.CONST.HORIZONTAL_ANCHOR.CENTER,
-        opacity: 0.7,
-        style:{
-            fillColor: "#ffffff"
-        }
-    });
-
-    this.radarCircleSelected = new AR.Circle(0.05, {
-        horizontalAnchor: AR.CONST.HORIZONTAL_ANCHOR.CENTER,
-        opacity: 0.7,
-        style: {
-            fillColor: "#000000"
-        }
-    });
-
-    this.radarDrawables = [];
-    this.radarDrawables.push(this.radarCircle);
-
-    this.radarDrawablesSelected = [];
-    this.radarDrawablesSelected.push(this.radarDrawablesSelected);
-
     this.markerObject = new AR.GeoObject(markerLocation, {
         drawables: {
             cam: [this.markerDrawableIdle, this.markerDrawableSelected, this.titleLabel, this.descriptionLabel],
-            indicator: this.directionIndicatorDrawable,
-            radar: this.radarDrawables
+            indicator: this.directionIndicatorDrawable
         }
     });
 
