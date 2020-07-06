@@ -1,7 +1,7 @@
 .radarContainer {
     position: absolute;
-    top: env(safe-area-inset-top);
-    left: env(safe-area-inset-left);
+    top: 0px;
+    left: 0px;
     width: 100px;
     height: 100px;
 }
