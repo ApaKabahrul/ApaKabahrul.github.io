@@ -16,6 +16,9 @@ var ArTa = {
 
     currentMarker: null,
 
+    locationUpdaterCounter: 0,
+    locationUpdaterMeter: 5,
+
     loadPoisFromJsonData: function loadPoisFromJsonDataFn(dataPOI) {
 
         ArTa.markerList = [];
@@ -42,7 +45,14 @@ var ArTa = {
             ArTa.markerList.push(new Marker(singlePoi));
         }
 
+        ArTa.updateDistance();
         ArTa.updateStatusMessage(currentPlaceNr + ' objek ditambahkan');
+    },
+
+    updateDistance: function updateDistanceToUserValuesFn(){
+      for (var i=0; i< ArTa.markerList.length; i++){
+          ArTa.markerList[i].distanceToUser = ArTa.markerList[i].markerObject.locations[0].distanceToUser();
+      }
     },
 
     updateStatusMessage: function updateStatusMessageFn(message, isWarning) {
@@ -63,26 +73,52 @@ var ArTa = {
             ArTa.requestDataFromServer(lat, lon);
             ArTa.initiallyLoadedData = true;
         }
+
+        else if (ArTa.locationUpdaterCounter === 0){
+            ArTa.updateDistance();
+        }
+
+        ArTa.updateDistance();
+
     },
 
     onMarkerSelected: function onMarkerSelectedFn(marker) {
+        ArTa.currentMarker = marker;
 
-        if (ArTa.currentMarker) {
+        $("#detail-nama").html(marker.dataPOI.title);
+        $("#detail-deskripsi").html(marker.dataPOI.description);
+
+        if (undefined === marker.distanceToUser){
+            marker.distanceToUser = marker.markerObject.locations[0].distanceToUser;
+        }
+
+        var distanceValue = (marker.distanceToUser > 999) ? ((marker.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(marker.distanceToUser) + " m");
+
+        $("#detail-jarak").html(distanceValue);
+
+        $("#panel-poidetail").panel("open",123);
+        $("#ui-panel-dismiss").unbind("mousedown");
+        $("#panel-poidetail").on("panelbeforeclose", function (event, ui){
+           ArTa.currentMarker.setDeselected(ArTa.currentMarker);
+        });
+
+        /*if (ArTa.currentMarker) {
             if (ArTa.currentMarker.dataPOI.id === marker.dataPOI.id) {
                 return;
             }
             ArTa.currentMarker.setDeselected(ArTa.currentMarker);
-        }
+        }*/
 
-        marker.setSelected(marker);
-        ArTa.currentMarker = marker;
+        /*marker.setSelected(marker);
+        ArTa.currentMarker = marker;*/
     },
 
     onScreenClick: function onScreenClickFn() {
-        if (ArTa.currentMarker) {
+
+        /*if (ArTa.currentMarker) {
             ArTa.currentMarker.setDeselected(ArTa.currentMarker);
         }
-        ArTa.currentMarker = null;
+        ArTa.currentMarker = null;*/
     },
 
     requestDataFromServer: function requestDataFromServerFn(lat, lon) {
