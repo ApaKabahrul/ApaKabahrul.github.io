@@ -21,6 +21,8 @@ var ArTa = {
 
     loadPoisFromJsonData: function loadPoisFromJsonDataFn(dataPOI) {
         RadarPOI.show();
+        $('#radarContainer').unbind('click');
+        $("#radarContainer").click(RadarPOI.clickedRadar);
 
         ArTa.markerList = [];
 
