@@ -18,7 +18,7 @@ var RadarPOI = {
             Set the north-indicator image for the radar (not necessary if you don't want to display a
             north-indicator).
          */
-        AR.radar.northIndicator.image = new AR.ImageResource("assets/radar_north.png", {
+        AR.radar.northIndicator.image = new AR.ImageResource("assets/kompas.png", {
             onError: ArTa.onError
         });
 
