@@ -281,5 +281,5 @@ Marker.prototype.isAnyAnimationRunning = function(marker) {
 
 /* Will truncate all strings longer than given max-length "n". e.g. "foobar".trunc(3) -> "foo...". */
 String.prototype.trunc = function(n) {
-    return this.substr(0, n - 1) + (this.length > n ? '...' : '');
+    return this.substr(0, n - 1);
 };
