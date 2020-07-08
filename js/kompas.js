@@ -10,9 +10,9 @@ var RadarPOI = {
         AR.radar.container = document.getElementById("radarContainer");
 
         /* Set the back-ground image for the radar. */
-        /*AR.radar.background = new AR.ImageResource("assets/kompas_bg.png", {
+        AR.radar.background = new AR.ImageResource("assets/radar_bg.png", {
             onError: ArTa.onError
-        });*/
+        });
 
         /*
             Set the north-indicator image for the radar (not necessary if you don't want to display a
