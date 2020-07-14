@@ -129,7 +129,7 @@ var ArTa = {
         var serverUrl = ServerInformation.POIDATA_SERVER + "?" +
             ServerInformation.POIDATA_SERVER_ARG_LAT + "=" +
             lat + "&" + ServerInformation.POIDATA_SERVER_ARG_LON + "=" +
-            lon + "&" + ServerInformation.POIDATA_SERVER_ARG_NR_POIS + "=1";
+            lon + "&" + ServerInformation.POIDATA_SERVER_ARG_NR_POIS + "=100";
 
         var jqxhr = $.getJSON(serverUrl, function(data) {
             ArTa.loadPoisFromJsonData(data);
