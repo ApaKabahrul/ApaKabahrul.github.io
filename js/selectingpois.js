@@ -19,7 +19,7 @@ var ArTa = {
     locationUpdaterCounter: 0,
     locationUpdaterMeter: 5,
 
-    loadPoisFromJsonData: function loadPoisFromJsonDataFn(dataPOI) {
+    loadPois: function loadPois(dataPOI) {
         RadarPOI.show();
 
         ArTa.markerList = [];
@@ -50,7 +50,7 @@ var ArTa = {
         ArTa.updateStatusMessage(currentPlaceNr + ' objek ditambahkan');
     },
 
-    updateDistance: function updateDistanceToUserValuesFn(){
+    updateDistance: function updateDistanceFn(){
         for (var i=0; i< ArTa.markerList.length; i++){
             ArTa.markerList[i].distanceToUser = ArTa.markerList[i].markerObject.locations[0].distanceToUser();
         }
@@ -132,7 +132,7 @@ var ArTa = {
             lon + "&" + ServerInformation.POIDATA_SERVER_ARG_NR_POIS + "=";
 
         var jqxhr = $.getJSON(serverUrl, function(data) {
-            ArTa.loadPoisFromJsonData(data);
+            ArTa.loadPois(data);
         })
             .error(function(err) {
                 ArTa.updateStatusMessage("Invalid web-service response.", true);
