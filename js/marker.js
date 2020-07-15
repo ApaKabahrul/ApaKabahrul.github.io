@@ -20,7 +20,7 @@ function Marker(dataPOI) {
     var markerLocation = new AR.GeoLocation(dataPOI.latitude, dataPOI.longitude);
 
     /* Create an AR.ImageDrawable for the marker in idle state. */
-    this.markerDrawableIdle = new AR.ImageDrawable(ArTa.markerDrawableIdle, 3, {
+    this.markerDrawableIdle = new AR.ImageDrawable(ArTa.markerDrawableIdle, 2.5, {
         zOrder: 0,
         opacity: 1.0,
         /*
