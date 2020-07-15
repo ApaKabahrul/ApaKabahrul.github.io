@@ -58,7 +58,7 @@ var ArTa = {
 
     updateStatusMessage: function updateStatusMessageFn(message, isWarning) {
 
-        var themeToUse = isWarning ? "e" : "c";
+        var themeToUse = isWarning ? "e" : "a";
         var iconToUse = isWarning ? "alert" : "info";
 
         $("#status-message").html(message);
@@ -124,7 +124,7 @@ var ArTa = {
 
     requestDataFromServer: function requestDataFromServerFn(lat, lon) {
         ArTa.isRequestingData = true;
-        ArTa.updateStatusMessage('Requesting tempat');
+        ArTa.updateStatusMessage('Requesting tempat...');
 
         var serverUrl = ServerInformation.POIDATA_SERVER + "?" +
             ServerInformation.POIDATA_SERVER_ARG_LAT + "=" +
@@ -135,7 +135,7 @@ var ArTa = {
             ArTa.loadPois(data);
         })
             .error(function(err) {
-                ArTa.updateStatusMessage("Invalid web-service response.", true);
+                ArTa.updateStatusMessage("Data gagal diambil.", true);
                 ArTa.isRequestingData = false;
             })
             .complete(function() {
