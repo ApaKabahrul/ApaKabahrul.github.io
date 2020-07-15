@@ -1,5 +1,5 @@
 var ServerInformation = {
-    POIDATA_SERVER: "https://apakabahrul.github.io/wikitude/dataPOI_mod.json",
+    POIDATA_SERVER: "https://apakabahrul.github.io/wikitude/dataPOI.json",
     POIDATA_SERVER_ARG_LAT: "lat",
     POIDATA_SERVER_ARG_LON: "lon",
     POIDATA_SERVER_ARG_NR_POIS: "nrPois"
