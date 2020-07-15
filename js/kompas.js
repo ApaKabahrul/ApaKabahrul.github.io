@@ -34,15 +34,15 @@ var RadarPOI = {
 
         AR.radar.enabled = true;
     },
-
+/*
     updatePosition: function updatePositionFn() {
         if (AR.radar.enabled) {
             AR.radar.notifyUpdateRadarPosition();
         }
-    },
+    },*/
 
     /* You may define some custom action when user pressed radar, e.g. display distance, custom filtering etc.. */
-    clickedRadar: function clickedRadarFn() {
+    /*clickedRadar: function clickedRadarFn() {
         alert("Radar Clicked");
-    },
+    },*/
 };
