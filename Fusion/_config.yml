@@ -1,0 +1,3 @@
+name: john doe
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
