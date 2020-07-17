@@ -4,7 +4,7 @@ var Trigger = {
     },
 
     createOverlays: function createOverlaysFn(){
-        this.targetCollectionResource = new AR.TargetCollectionResource("assets/ mag.wtc", {
+        this.targetCollectionResource = new AR.TargetCollectionResource("assets/mag.wtc", {
             onError: Trigger.onError
         });
 
