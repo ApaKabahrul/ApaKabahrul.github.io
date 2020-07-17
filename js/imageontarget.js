@@ -9,7 +9,7 @@ var World = {
             onError: World.onError
         });
         this.tracker = new AR.ImageTracker(this.targetCollectionResource, {
-            onTargetsLoaded: World.nativePlatform,
+            onTargetsLoaded: World.showInfoBar,
             onError: World.onError
         });
 
