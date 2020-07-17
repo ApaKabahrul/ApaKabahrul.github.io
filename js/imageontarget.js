@@ -26,13 +26,23 @@ var World = {
             drawables: {
                 cam: overlayOne
             },
-            onImageRecognized: World.hideInfoBar,
+            /*onImageRecognized: World.hideInfoBar,*/
+            onImageRecognized: World.nativePlatform,
             onError: World.onError
         });
     },
 
     onError: function onErrorFn(error) {
         alert(error);
+    },
+
+    nativePlatform: function nativePlatformFn(){
+        var dummyJSON ={
+            action: "present_poi_details",
+            id: "ID",
+        };
+
+        AR.platform.sendJSONObject(dummyJSON);
     },
 
     hideInfoBar: function hideInfoBarFn() {
