@@ -27,10 +27,11 @@ var ArTa = {
         ArTa.markerList = [];
 
         ArTa.sound = new AR.Sound("assets/siren.wav", {
-            onLoaded: function(){
-                ArTa.load()
-                ArTa.sound.play();}
+            onLoaded:ArTa.onLoaded,
+            onError: ArTa.onError
         });
+
+        ArTa.sound.load();
 
         ArTa.markerDrawableIdle = new AR.ImageResource("assets/marker_idle_small.png", {
             onError: ArTa.onError
@@ -149,6 +150,10 @@ var ArTa = {
             .complete(function() {
                 ArTa.isRequestingData = false;
             });
+    },
+
+    onLoaded: function onLoadedFn() {
+        ArTa.sound.play();
     },
 
     onError: function onErrorFn(error) {
