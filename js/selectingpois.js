@@ -68,6 +68,20 @@ var ArTa = {
         });
     },
 
+    onPoiDetailMoreButtonClicked: function onPoiDetailMoreButtonClickedFn() {
+        var currentMarker = ArTa.currentMarker;
+        var markerSelectedJSON = {
+            action: "present_poi_details",
+            id: currentMarker.poiData.id,
+            title: currentMarker.poiData.title,
+            description: currentMarker.poiData.description
+        };
+        /*
+            The sendJSONObject method can be used to send data from javascript to the native code.
+        */
+        AR.platform.sendJSONObject(markerSelectedJSON);
+    },
+
     locationChanged: function locationChangedFn(lat, lon) {
 
         if (!ArTa.initiallyLoadedData) {
