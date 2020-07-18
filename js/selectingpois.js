@@ -27,7 +27,9 @@ var ArTa = {
         ArTa.markerList = [];
 
         ArTa.sound = new AR.Sound("assets/siren.wav", {
-            onLoaded : function(){sound.play();}
+            onLoaded: function(){
+                ArTa.load()
+                ArTa.sound.play();}
         });
 
         ArTa.markerDrawableIdle = new AR.ImageResource("assets/marker_idle_small.png", {
