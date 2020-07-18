@@ -12,6 +12,8 @@ var ArTa = {
     markerDrawableSelected: null,
     markerDrawableDirectionIndicator: null,
 
+    sound: null,
+
     markerList: [],
 
     currentMarker: null,
@@ -23,6 +25,10 @@ var ArTa = {
         RadarPOI.show();
 
         ArTa.markerList = [];
+
+        ArTa.sound = new AR.Sound("assets/siren.wav", {
+            onLoaded : function(){sound.play();}
+        });
 
         ArTa.markerDrawableIdle = new AR.ImageResource("assets/marker_idle_small.png", {
             onError: ArTa.onError
