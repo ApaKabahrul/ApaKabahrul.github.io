@@ -2,7 +2,7 @@
     font-size: large;
     position: absolute;
     width: 100%;
-    padding-top: calc(12px + env(safe-area-inset-top));
+    padding-top: 15px;
     padding-bottom: 12px;
     background-color: #FFFFFF;
     text-align: center;
@@ -18,5 +18,5 @@
     display: table-cell;
     vertical-align: baseline;
     text-align: center;
-    width: auto;
+    width: 50%;
 }
