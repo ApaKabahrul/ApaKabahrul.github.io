@@ -13,20 +13,7 @@ var World = {
             onError: World.onError
         });
 
-        var imgOne = new AR.ImageResource("assets/imageOne.png", {
-            onError: World.onError
-        });
-        var overlayOne = new AR.ImageDrawable(imgOne, 1, {
-            translate: {
-                x: -0.15
-            }
-        });
-
         this.logo_itera_bulet_head = new AR.ImageTrackable(this.tracker, "logo_itera_bulet_head", {
-            drawables: {
-                cam: overlayOne
-            },
-            /*onImageRecognized: World.hideInfoBar,*/
             onImageRecognized: World.nativePlatform,
             onError: World.onError
         });
