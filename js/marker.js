@@ -24,13 +24,17 @@ function Marker(dataPOI) {
     });
 
     this.titleLabel = new AR.Label(dataPOI.title.trunc(10), 1, {
+        zOrder: 1,
+        translate: {
+            y: 0.55
+        },
         style: {
             textColor: '#FFFFFF',
             fontStyle: AR.CONST.FONT_STYLE.BOLD
         }
     });
 
-    /*this.descriptionLabel = new AR.Label(dataPOI.description.trunc(15), 0.8, {
+    this.descriptionLabel = new AR.Label(dataPOI.description.trunc(15), 0.8, {
         zOrder: 1,
         translate: {
             y: -0.55
@@ -38,7 +42,7 @@ function Marker(dataPOI) {
         style: {
             textColor: '#FFFFFF'
         }
-    });*/
+    });
 
 
     this.directionIndicatorDrawable = new AR.ImageDrawable(ArTa.markerDrawableDirectionIndicator, 0.1, {
@@ -49,7 +53,7 @@ function Marker(dataPOI) {
 
     this.markerObject = new AR.GeoObject(markerLocation, {
         drawables: {
-            cam: [this.markerDrawableIdle, this.markerDrawableSelected, this.titleLabel],
+            cam: [this.markerDrawableIdle, this.markerDrawableSelected, this.titleLabel, this.descriptionLabel],
             indicator: this.directionIndicatorDrawable
         }
     });
