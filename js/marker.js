@@ -24,10 +24,6 @@ function Marker(dataPOI) {
     });
 
     this.titleLabel = new AR.Label(dataPOI.title.trunc(10), 1, {
-        zOrder: 1,
-        translate: {
-            y: 0.55
-        },
         style: {
             textColor: '#FFFFFF',
             fontStyle: AR.CONST.FONT_STYLE.BOLD
