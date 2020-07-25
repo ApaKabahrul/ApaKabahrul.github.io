@@ -158,6 +158,19 @@ var ArTa = {
 
     onError: function onErrorFn(error) {
         alert(error);
+    },
+
+    onPoiDetailMoreButtonClicked: function onPoiDetailMoreButtonClickedFn() {
+        var currentMarker = ArTa.currentMarker;
+        var markerSelectedJSON = {
+            action: "poi",
+            latitude: currentMarker.dataPOI.latitude,
+            longitude: currentMarker.dataPOI.longitude
+        };
+        /*
+            The sendJSONObject method can be used to send data from javascript to the native code.
+        */
+        AR.platform.sendJSONObject(markerSelectedJSON);
     }
 };
 
