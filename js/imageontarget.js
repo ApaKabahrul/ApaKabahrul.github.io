@@ -25,7 +25,7 @@ var World = {
 
     nativePlatform: function nativePlatformFn(){
         var dummyJSON ={
-            action: "present_poi_details",
+            action: "intent_activity",
             id: "ID",
         };
 
