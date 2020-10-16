@@ -54,7 +54,7 @@
     "longitude":"105.310168",
     "latitude":"-5.360329",
     "description":"Ini adalah Gedung Laboratorium Teknik 1",
-    "name":"Labtek1 (Laboratorium Teknik 1)"
+    "name":"Labtek 1 (Laboratorium Teknik 1)"
   },
   {
     "id":"9",
@@ -86,9 +86,9 @@
   },
   {
     "id":"13",
-    "longitude":"105.315537",
-    "latitude":"-5.357935",
-    "description":"Ini adalah Gedung Galeri ITERA",
+    "longitude":"105.315526",
+    "latitude":"-5.357992",
+    "description":"Ini adalah Galeri ITERA",
     "name":"Galeri ITERA"
   },
   {
@@ -107,8 +107,8 @@
   },
   {
     "id":"16",
-    "longitude":"105.315926",
-    "latitude":"-5.357810",
+    "longitude":"105.315921",
+    "latitude":"-5.357839",
     "description":"Ini adalah Gedung Poliklinik ITERA",
     "name":"Poliklinik"
   }
