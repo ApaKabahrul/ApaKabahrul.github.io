@@ -111,5 +111,26 @@
     "latitude":"-5.357839",
     "description":"Ini adalah Gedung Poliklinik ITERA",
     "name":"Poliklinik"
+  },
+  {
+    "id":"17",
+    "longitude":"106.870161",
+    "latitude":"-6.376837",
+    "description":"dummy",
+    "name":"DUMMY A"
+  },
+  {
+    "id":"18",
+    "longitude":"106.870650",
+    "latitude":"-6.377282",
+    "description":"dummy",
+    "name":"DUMMY B"
+  },
+  {
+    "id":"19",
+    "longitude":"106.871304",
+    "latitude":"-6.376314",
+    "description":"dummy",
+    "name":"DUMMY C"
   }
 ]
