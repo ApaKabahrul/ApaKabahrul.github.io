@@ -1,76 +1,616 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Type" content="application/json; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
-
-    <title>My ARchitect ArTa</title>
-
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/radar.css"/>
-
-    <script src="https://www.wikitude.com/libs/architect.js"></script>
-    <script type="text/javascript" src="../ade.js"></script>
-
-    <script>window.onload = function() {AR.logger.setHTMLLoggingEnabled(enabled);}</script>
-
-    <link rel="stylesheet" href="jquery/jquery.mobile-1.3.2.min.css"/>
-    <link rel="stylesheet" href="jquery/jquery-mobile-transparent-ui-overlay.css"/>
-
-    <script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="jquery/jquery.mobile-1.3.2.min.js"></script>
-
-
-    <script src="js/marker.js"></script>
-    <script type="text/javascript" src="js/selectingpois.js"></script>
-    <script type="text/javascript" src="js/kompas.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <title>Bahrul Faizi | Android Developer</title>
 </head>
 
 <body>
-<div data-role="page" id="page1" style="background: none;">
+  <nav class="hide-on-small-only">
+    <ul class="side-nav fixed section table-of-contents">
 
-    <div data-role="panel" id="panel-poidetail" data-display="overlay"
-         style="background-color:#FFFFFF;" data-theme="a">
+      <li class="logo">
+        <a id="logo-container" aria-label="Navigate to the beginning of the page" href="#intro"
+          class="brand-logo grey-blue-text">
+          <img src="/assets/img/1.jpg" class="circle img-responsive profile-pic" alt="avatar">
+        </a>
+      </li>
 
-        <div data-role="header" data-theme="c">
-            <h1>Details</h1>
-            <a href="#header" data-rel="close">Tutup</a>
+      <li class="bold">
+        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
+            class="mdi-social-person small"></i><span>About</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Experience section" href="#experience"
+          class="waves-effect waves-dark teal-text"><i
+            class="mdi-action-trending-up small"></i><span>Experience</span></a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
+            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
+            class="mdi-action-assessment small"></i><span>Skills</span></a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
+            class="mdi-social-school small"></i><span>Education</span></a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
+            class="mdi-content-mail small"></i><span>Contact</span></a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Open Bahrul's resume in a new tab" href="https://drive.google.com/file/d/1B-LuVxVPNtTmXYM4POz42-IqWn9p2cI_/view?usp=sharing" target="_blank"
+        class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Nav class 2 -->
+  <nav class="hide-on-large only trigger z-depth-1">
+    <a aria-label="Toggle visibility of the mobile navbar" href="#" data-activates="slide-out"
+      class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    <div class="name-title">
+      <a id="name" aria-label="Navigate to the beginning of the page" href="#" class="teal-text">Varad
+        Bhogayata</a><span class="black-text">Software Developer</span>
+    </div>
+  </nav>
+
+  <!-- Nav class 3 -->
+  <nav class="hide-on-large only">
+    <ul id="slide-out" class="side-nav">
+      <li class="bold">
+        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
+            class="mdi-social-person small"></i><span>About</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Experience section" href="#experience"
+          class="waves-effect waves-dark teal-text"><i
+            class="mdi-action-trending-up small"></i><span>Experience</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
+            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
+            class="mdi-action-assessment small"></i><span>Skills</span></a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
+            class="mdi-social-school small"></i><span>Education</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
+            class="mdi-content-mail small"></i><span>Contact</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Open Bahrul's Resume in a new tab"
+          href="https://drive.google.com/file/d/1B-LuVxVPNtTmXYM4POz42-IqWn9p2cI_/view?usp=sharing" target="_blank"
+          class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content-->
+  <main>
+    <!-- First Section: Heading lines and image -->
+    <section id="intro" class="section scrollspy full-height">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="col-md-9">
+          <div class="content section-padding valign" style="margin-left: 10%; margin-top: 50px;">
+            <div class="caption">
+              <h2>Hi, I'm <span class="teal">Bahrul Faizi.</span></h2>
+              <h5 style="color:#fff">A <span class="typing" style="font-weight: 300; color:#000000"></span></h5>
+              <!-- <h5 style="color:#00796b">A <span class="typing" style="font-weight: 300; color:#fff"></span></h5> -->
+              <h5>I am an android developer with pretty knowledge of android apps development. I am also experienced in project documentation..</h5>
+            </div>
+            <div class="social">
+              <a href="https://github.com/ApaKabahrul/" target="_blank">
+                <button class="icon-btn github">
+                  <i class="fa fa-github"></i>
+                </button>
+              </a>
+
+              <a href="http://linkedin.com/in/ApaKabahrul" target="_blank">
+                <button class="icon-btn linkedin">
+                  <i class="fa fa-linkedin"></i>
+                </button>
+              </a>
+
+              <a href="https://www.instagram.com/bahrulofficial_/" target="_blank">
+                <button class="icon-btn angellist">
+                  <i class="fa fa-instagram"></i>
+                </button>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Second Section: About -->
+    <section id="about" class="section scrollspy">
+      <h3 class="page-title white-text teal">About</h3>
+      <div class="container flow-text">
+        <p>
+          I am an Informatic Engineering Grad Student at Institut Teknologi Sumatera.
+        </p>
+        <!-- <p> -->
+          <!-- Android Developer with experienced in Development, Augmented Reality. I am experienced in Java, Kotlin, XML, Augmented Reality. -->
+          <!-- Detail-oriented Software Engineer with a get-it-done, on-time, and high-quality product spirit and a keen interest in Software Development and Artificial Intelligence. -->
+        <!-- </p> -->
+        <p>
+          Looking for an opportunity to work in a challenging position combining my skills in Software Engineering, which provides professional development, interesting experiences and personal growth.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- Third Section: Experience -->
+    <section id="experience" class="section scrollspy">
+      <h3 class="page-title white-text teal">Experience</h3>
+      <div class="container">
+
+        <!-- Latest Experience -->
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <a href="https://smkscitranegara.sch.id/" target="_blank"><img alt="ITERA logo"
+                    src="/assets/img/smk.png" class="responsive-img center-block" /></a>
+              </div>
+              <!-- <div class="col s12 m10"> -->
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title"><a href="https://smkscitranegara.sch.id/" target="_blank"
+                      class="teal-text hoverline">SMKS CITRA NEGARA</a></span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">Honorary Teacher</div>
+            <ul>
+              <li>
+                Teach student Creative Product and Entrepreneurship.
+              </li>
+              <li>
+                Give and grade assignment to student.
+              </li>
+              <li>
+                Create grade report.
+              </li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>Oct 2020 - present | West Java, Indonesia</span>
+          </div>
         </div>
 
-        <div data-role="content">
 
-            <h3 id="detail-nama"></h3>
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <a href="https://www.itera.ac.id/" target="_blank"><img alt="ITERA logo"
+                    src="/assets/img/itera.png" class="responsive-img center-block" /></a>
+              </div>
 
-            <h4 id="detail-deskripsi"></h4>
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title"><a href="https://www.itera.ac.id/" target="_blank"
+                      class="teal-text hoverline">Institut Teknologi Sumatera</a></span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">Lab Assistant</div>
+            <ul>
+              <li>
+                Teach student basic of Mobile Application Development.
+              </li>
+              <li>
+                Give and grade assignment to student.
+              </li>
+              <li>
+                Create grade report.
+              </li>
+              <li>
+                <b>Tools:</b> Android Studio, Google Docs
+              </li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>Mar 2020 - May 2020 | Lampung, Indonesia</span>
+          </div>
+        </div>
 
-            <h4>Jarak: <a id="detail-jarak"></a></h4>
 
-            <a href="javascript: ArTa.onPoiDetailMoreButtonClicked();" data-role="button" data-icon="arrow-r"
-               data-iconpos="right" data-inline="true">More</a>
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <a href="https://www.dpr.go.id" target="_blank"><img alt="Setjen logo"
+                    src="/assets/img/setjen.png" class="responsive-img center-block" /></a>
+              </div>
+              <!-- <div class="col s12 m10"> -->
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title"><a href="https://www.dpr.go.id" target="_blank"
+                      class="teal-text hoverline">Sekretariat Jenderal DPR RI</a></span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">(Internship) Android Developer</div>
+            <ul>
+              <li>
+                Duplicate existing application (DPR NOW!) as learning media for BDTI (Bidang data dan Informasi) division.
+              </li>
+              <li>
+                Write application documentation.
+              </li>
+              <li>
+                Collaborate with other developer.
+              </li>
+              <li>
+                <b>Tools:</b> Android Studio, Firebase, Picasso, Volley
+              </li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>Jun 2019 - Aug 2019 | Jakarta, Indonesia</span>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <a href="https://www.itera.ac.id/" target="_blank"><img alt="ITERA logo"
+                    src="/assets/img/itera.png" class="responsive-img center-block" /></a>
+              </div>
+              <!-- <div class="col s12 m10"> -->
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title"><a href="https://www.itera.ac.id/" target="_blank"
+                      class="teal-text hoverline">Institut Teknologi Sumatera</a></span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">Lab Assistant</div>
+            <ul>
+              <li>
+                Teach student basic of Linux Operating System.
+              </li>
+              <li>
+                Teach student basic of bash script programming language.
+              </li>
+              <li>
+                Give and grade assignment to student.
+              </li>
+              <li>
+                Create grade report.
+              </li>
+              <li>
+                <b>Tools:</b> Linux, Google Docs
+              </li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>Feb 2019 - May 2019 | Lampung, Indonesia</span>
+          </div>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <a href="https://www.itera.ac.id/" target="_blank"><img alt="ITERA logo"
+                    src="/assets/img/itera.png" class="responsive-img center-block" /></a>
+              </div>
+              <!-- <div class="col s12 m10"> -->
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title"><a href="https://www.itera.ac.id/" target="_blank"
+                      class="teal-text hoverline">Institut Teknologi Sumatera</a></span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">Lab Assistant</div>
+            <ul>
+              <li>
+                Teach student basic of C and C++ programming language.
+              </li>
+              <li>
+                Give and grade assignment to student.
+              </li>
+              <li>
+                Create grade report.
+              </li>
+              <li>
+                <b>Tools:</b> Dev-C++, Google Docs
+              </li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>Feb 2019 - May 2019 | Lampung, Indonesia</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Fourth Section: Projects -->
+    <section id="projects" class="section scrollspy">
+      <h3 class="page-title white-text teal">Projects</h3>
+      <div class="container">
+        <div class="row">
+
+          <div class="col s2 m2 l2">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img alt="Template DPR NOW!" src="/assets/img/template_dpr_now.png" style="height: 100%; width: 80%" class="activator" />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator teal-text hoverline">Template DPR NOW!<i
+                    class="mdi-navigation-more-vert right"></i></span>
+                <p>
+                  A duplicate mobile app of DPR NOW!
+                </p>
+              </div>
+              <div class="card-reveal">
+                <!-- TODO: change this -- only close button -->
+                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
+                <span class="card-title grey-text"><small>Accomplishments</small><i
+                    class="mdi-navigation-close right"></i></span>
+                <ul>
+                  <li><b>Tools:</b> Android Studio, JDK, Android SDK, Gradle, Firebase, Retrofit, Picasso, Volley, SQLite, Google Services</li>
+                  <li>Register/login to the mobile app(with OAuth-based Google Sign-In, Firebase, and Custom API).</li>
+                  <li>Search DPR Member per commission.</li>
+                  <li>Create complaint and aspiration ticket</li>
+                  <li>etc.</li>
+
+
+                </ul>
+                <div class="card-action">
+                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/annisagita/Template-dpr-now"
+                    target="_blank" data-position="top" data-tooltip="View Source"
+                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+                      class="fa fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s2 m2 l2">
+            <div class="card large">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img alt="AR app" src="/assets/img/splash.png" style="height: 100%; width: 80%" class="activator" />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator teal-text hoverline">AR TA<i
+                    class="mdi-navigation-more-vert right"></i></span>
+                <p>
+                  A location-Based Service Augmented Reality for Introduction Campus Area
+                </p>
+              </div>
+              <div class="card-reveal">
+                <!-- TODO: change this -- only close button -->
+                <!-- <span class="card-title brown-text">Accomplishments<i class="mdi-navigation-close right"></i></span> -->
+                <span class="card-title grey-text"><small>Accomplishments</small><i
+                    class="mdi-navigation-close right"></i></span>
+                <ul>
+                  <li><b>Tools:</b> Android Studio, JDK, Android SDK, Gradle, Wikitude SDK, Mapbox SDK, Google Services</li>
+                  <li>Display AR marker at building position, count the distance and set direction from current position.</li>
+                  <li>Display room details in AR</li>
+
+                </ul>
+                <div class="card-action">
+                  <a aria-label="Visit the GitHub repo for  project" href="https://github.com/ApaKabahrul/AR_TA"
+                    target="_blank" data-position="top" data-tooltip="View Source"
+                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+                      class="fa fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
-    </div>
+      </div>
+    </section>
 
-    <div id="infoBox" class="info">
-        <div class="text">Scan logo ITERA untuk masuk ke mode Ruangan:</div>
-    </div>
-
-    <script src="js/imageontarget.js"></script>
-
-    <div class="radarContainer" id="radarContainer"></div>
-
-    <div data-role="footer" class="ui-bar" data-theme="f" data-position="fixed" style="text-align:center;">
-        <a style="text-align:right;" id="popupInfoButton" href="#popupInfo" data-rel="popup" data-role="button"
-           class="ui-icon-alt" data-inline="true" data-transition="pop" data-icon="alert" data-theme="e"
-           data-iconpos="notext">Log</a> </p>
-
-        <div data-role="popup" id="popupInfo" class="ui-content" data-theme="e" style="max-width:350px;">
-            <p style="text-align:right;" id="status-message">Identifikasi lokasi...</p>
+    <!-- Fifth Section: Skills -->
+    <section id="skills" class="section scrollspy">
+      <h3 class="page-title white-text teal">Skills</h3>
+      <div class="container">
+        <!-- Languages and Databases -->
+        <div class="card">
+          <div class="card-content">
+            <h4 class="brown-text light">Languages</h4>
+            <div class="row text-center">
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/kotlin.png" class="responsive-img" />Kotlin
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/java.png" class="responsive-img" />Java
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/xml_img.png" class="responsive-img" />XML
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/C.png" class="responsive-img" />C
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/cpp.jpg" class="responsive-img" />C++
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/shell-logo-1-300x300.jpg" class="responsive-img" />Shell Scripting
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
 
-</div>
+        <div class="card">
+          <div class="card-content">
+            <h4 class="brown-text light">Libraries</h4>
+            <div class="row text-center">
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/picasso.jpeg" class="responsive-img" />Picasso
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/glide_logo.png" class="responsive-img" />Glide
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other -->
+        <div class="card">
+          <div class="card-content">
+            <h4 class="brown-text light">Other</h4>
+            <div class="row text-center">
+
+
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/git.png" class="responsive-img" />Git
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/firebase.png" class="responsive-img" />Firebase
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/wikitude.png" class="responsive-img" />Wikitude
+              </div>
+              <div class="col s4 m2">
+                <img alt="" src="/assets/img/mapbox.png" class="responsive-img" />Mapbox
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- Seventh Section: Education -->
+    <section id="education" class="section scrollspy">
+      <h3 class="page-title white-text teal">Education</h3>
+      <div class="container">
+        <div class="row">
+          <!-- Education -->
+          <div class="col s12 m6">
+            <div class="card">
+              <div class="card-content">
+                <p>
+                  <span class="card-title"><a href="https://www.itera.ac.id/" target="_blank" class="teal-text hoverline">Institut Teknologi Sumatera</a></span>
+                </p>
+                <p class="brown-text">Lampung, Indonesia</p>
+                <p>
+                  <b>Degree: </b>Bachelor of Informatic Engineering
+                  <br>
+                  <b>CGPA: </b>2.95/4
+                </p>
+
+                <ul>
+                  <p>
+                    <b>Relevant Courseworks:</b>
+                  <ul>
+                    <li>Data Structures and Algorithms</li>
+                    <li>Object-oriented programming</li>
+                    <li>Database Management Systems</li>
+                    <li>Embedded System</li>
+                    <li>Mobile Application Development</li>
+                  </ul>
+                  </p>
+
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eight Section: Contact -->
+    <section id="contact" class="section scrollspy full-height">
+      <h3 class="page-title white-text teal">Contact</h3>
+      <div class="container">
+        <p>
+          <a aria-label="Call Bahrul" data-position="top" data-tooltip="Call Bahrul"
+            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-phone"></i><a
+            aria-label="Message Bahrul via WhatsApp" href="https://wa.me/6289638156780" class="hoverline"
+            target="_blank">+62-896-3815-6780</a></a>
+        </p>
+        <p>
+          <a aria-label="Email Bahrul" href="mailto:bahrul.faizi@gmail.com" target="_blank" data-position="top"
+            data-tooltip="Email Bahrul" class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+              class="fa fa-envelope"></i><a aria-label="Email Bahrul" href="mailto:bahrul.faizi@gmail.com"
+              class="hoverline">bahrul.faizi@gmail.com</a></a>
+        </p>
+        <p>
+          <a aria-label="View Bahrul on GitHub" href="http://github.com/ApaKabahrul" target="_blank"
+            data-position="top" data-tooltip="View Bahrul on GitHub"
+            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-github"></i><a
+              aria-label="Bahrul on Github" href="http://github.com/ApaKabahrul" class="hoverline"
+              target="_blank">github.com/ApaKabahrul</a></a>
+        </p>
+        <p>
+          <a aria-label="View Bahrul on LinkedIn" href="http://linkedin.com/in/ApaKabahrul" target="_blank"
+            data-position="top" data-tooltip="View Bahrul on LinkedIn"
+            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+              class="fa fa-linkedin"></i><a aria-label="Bahrul on LinkedIn" href="http://linkedin.com/in/ApaKabahrul"
+              class="hoverline" target="_blank">linkedin.com/in/ApaKabahrul</a></a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- typed.js -->
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script type="text/javascript">
+    var typed = new Typed('.typing',{
+      strings: ["Problem Solver", "Project Documentator", "Design Thinker", "Developer", "Fast Learner"],
+      loop: true,
+      typeSpeed: 80,
+      backSpeed: 40
+    });
+  </script>
+
+
+  <!-- jQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+  <!-- Materialize - Compiled and minified JavaScript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+  <script>
+    // Materialize - Initializers
+    $(document).ready(function () {
+      $(".scrollspy").scrollSpy()
+      // Initialize collapse button
+      $(".button-collapse").sideNav({
+        menuWidth: 190, // Default is 240
+        edge: "left", // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      })
+    })
+  </script>
 </body>
+
 </html>
